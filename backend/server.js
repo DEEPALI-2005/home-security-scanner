@@ -34,9 +34,15 @@ app.use('/api/reports', authMiddleware, reportsRoutes);
 // Serve static files from frontend build
 app.use(express.static(path.join(__dirname, 'public')));
 
-// SPA fallback - non-API routes को index.html भेजो
-app.get(/^(?!\/api\/).*/, (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// SPA fallback - use app.use() instead of app.get() to avoid regex errors
+app.use((req, res) => {
+  const filePath = path.join(__dirname, 'public', 'index.html');
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error('Error serving index.html:', err.message);
+      res.status(500).json({ error: 'Could not load application' });
+    }
+  });
 });
 
 // Error handler
@@ -45,7 +51,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message || 'Something went wrong!' });
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
   console.log(`📡 API Base URL: http://localhost:${PORT}/api`);
