@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');  // ← ADD यह
 require('dotenv').config();
 
 const app = express();
@@ -29,6 +30,14 @@ app.use('/api/auth', authRoutes);
 // Protected Routes
 app.use('/api/vulnerabilities', authMiddleware, vulnerabilitiesRoutes);
 app.use('/api/reports', authMiddleware, reportsRoutes);
+
+// Serve static files from frontend build  ← ADD यह
+app.use(express.static(path.join(__dirname, 'public')));
+
+// SPA fallback - सभी non-API routes को index.html भेजो  ← ADD यह
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // 404 handler
 app.use((req, res) => {
