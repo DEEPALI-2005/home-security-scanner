@@ -1,0 +1,283 @@
+.report-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .report-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .report-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+  }
+  
+  .report-header p {
+    margin: 0;
+    opacity: 0.9;
+  }
+  
+  .report-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 1024px) {
+    .report-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-title h2 {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .select-all {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .select-all input {
+    cursor: pointer;
+  }
+  
+  .vuln-list {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    max-height: 600px;
+    overflow-y: auto;
+  }
+  
+  .vuln-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s;
+  }
+  
+  .vuln-item:hover {
+    background: #f9f9f9;
+  }
+  
+  .vuln-item input[type="checkbox"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+  }
+  
+  .vuln-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .vuln-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .vuln-device {
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .severity-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  
+  .report-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .settings-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .settings-box h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.2);
+  }
+  
+  .stats-box {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .stats-box h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .stats-box p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .stats-box strong {
+    color: #333;
+  }
+  
+  .btn-generate {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .btn-generate:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  }
+  
+  .btn-generate:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .previous-reports {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .previous-reports h3 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+  }
+  
+  .reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .report-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border-left: 4px solid #667eea;
+  }
+  
+  .report-info {
+    flex: 1;
+  }
+  
+  .report-title {
+    margin: 0 0 4px 0;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .report-date {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .btn-download {
+    padding: 8px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .btn-download:hover {
+    background: #764ba2;
+  }
+  
+  .alert {
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .alert-error {
+    background-color: #fadbd8;
+    border: 1px solid #e74c3c;
+    color: #c0392b;
+  }
+  
+  .alert-success {
+    background-color: #d5f4e6;
+    border: 1px solid #27ae60;
+    color: #186a3b;
+  }
